@@ -23,8 +23,7 @@ Quiz.prototype.guesses = function (answers) {
 
 	//checks the correct answer from the model.js
 	if(this.getQuestionIndex().correctAnswer(answers)){
-		var scoreTest = this.score += this.answers;
-        console.log(this.score);
+		this.score++;
 	}
 
 	//increment the question index regardless of if it is correct or not

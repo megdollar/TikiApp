@@ -1,69 +1,3 @@
-var answerScore;
-//This will contain scores, num of questions
-
-//Quiz constructor function initialize score at 0, questions, question index (currently on) 0
-function Quiz(questions) {
-	this.score = 0;
-	this.questions = questions;
-	this.questionIndex = 0;
-}
-
-//get the index of current question
-Quiz.prototype.getQuestionIndex = function() {
-	return this.questions[this.questionIndex];
-};
-
-//check if quiz has ended or not
-Quiz.prototype.isEnded = function() {
-	return this.questions.length === this.questionIndex;
-};
-
-//check if answer is correct (maybe change)
-Quiz.prototype.guesses = function (answers) {
-	//increment the question index regardless of if it is correct or not
-
-	//checks the correct answer from the model.js
-	if(this.getQuestionIndex().correctAnswer(answers)){
-        //for (i=0; i<questions.length; i++){
-            
-        
-		  console.log(this.score = answerScore);
-        console.log(this.score += answerScore);
-
-        //return scoreTest;
-        //}
-	}
-    //console.log(scoreTest);
-
-	//increment the question index regardless of if it is correct or not
-	this.questionIndex++;
-};
-
-
-//Constructor function: each question has three attributes: text, choices, answers
-function Question(text, choices, answers){
-	this.text = text;
-	this.choices = choices;
-	this.answers = answers;
-}
-
-//Detect answer for each choice selected in question. return true if choice = answer
-//maybe need to change this to map each answer to each choice 
-Question.prototype.correctAnswer = function(choice) {
-	//return choice === this.answers;
-    for (i=0; i<questions.length; i++){
-        for (answers in questions){
-            console.log(this.choices[i] = this.answers[i]);
-        //return answerScore;
-        
-        }
-        
-    }
-};
-
-//function for each question loop through answer and map the value to choice 
-
-
 function populate() {
 	if(quiz.isEnded()){
 		showScores();
@@ -113,7 +47,7 @@ function showProgress(){
 
 //question, array of choices, array of answers
 var questions = [
-	new Question("Best Van Halen lead singer?", ["Diamond David Lee Roth","Sammy Hagar", "I don't know"], [0,10,0]),
+	new Question("Best Van Halen lead singer?", ["Diamond David Lee Roth","Sammy Hagar", "I don't know"], "Diamond David Lee Roth"),
 	new Question("Are the bartenders wearing Aloha Shirts?", ["No", "Yes, but they are very touristy", "Yes, and they're pretty sweet"],[0,5,10]),
 	new Question("Can you see any whole limes behind the bar?", ["Yes", "No", "Yes, but they're moldy"], [5,0,1]),
 	new Question("Are there any tiki gods on the wall?",["No", "Yes, and they are hand carved", "Yes, generic store-bought"], [0,15,5]),
@@ -137,14 +71,3 @@ var quiz = new Quiz(questions);
 
 //function to populate questions
 populate();
-
-
-for (i=0; i<questions.length; i++){
-    console.log(questions[i].answers);
-}
-
-for (i=0; i<questions.length; i++){
-     console.log(questions[i].choices);
-     }
-
-
