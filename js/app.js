@@ -9,11 +9,5 @@ function Question(text, choices, answers){
 //Detect answer for each choice selected in question. return true if choice = answer
 //maybe need to change this to map each answer to each choice 
 Question.prototype.correctAnswer = function(choices) {
-	//return choice === this.answers;
-    for (i=0; i<questions.length; i++){
-         console.log(this.choices[i] = this.answers[i]);
-        
-    }
+	return choice === this.answers;
 };
-
-//function for each question loop through answer and map the value to choice 
