@@ -142,9 +142,9 @@ var quiz = new Quiz(questions);
 populate();
 
 
-for (i=0; i<questions.length; i++){
-    console.log(questions[i].answers);
-}
+//for (i=0; i<questions.length; i++){
+  //  console.log(questions[i].answers);
+//}
 
 
 
