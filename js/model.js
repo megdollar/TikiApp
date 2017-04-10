@@ -24,16 +24,16 @@ Quiz.prototype.guesses = function (answers) {
 
 	//checks the correct answer from the model.js
 	if(this.getQuestionIndex().correctAnswer(answers)){
-        //for (i=0; i<questions.length; i++){
+        //for (i=0; i<Question.length; i++){
             
         
-		  console.log(this.score = answerScore);
-        console.log(this.score += answerScore);
+		  
+        console.log(this.score + answers);
 
-        //return scoreTest;
-        //}
+       
+       // }
 	}
-    //console.log(scoreTest);
+    
 
 	//increment the question index regardless of if it is correct or not
 	this.questionIndex++;
@@ -51,12 +51,15 @@ function Question(text, choices, answers){
 //maybe need to change this to map each answer to each choice 
 Question.prototype.correctAnswer = function(choice) {
 	//return choice === this.answers;
-    for (i=0; i<questions.length; i++){
-        for (answers in questions){
-            console.log(this.choices[i] = this.answers[i]);
-        //return answerScore;
+    for (i=0; i<Question.length; i++){
+        //for (answers in questions){
+                //console.log(this.answers[i]);
+                console.log(this.choices[i] = this.answers[i]);
+            
+
         
-        }
+        
+        //}
         
     }
 };
@@ -143,8 +146,6 @@ for (i=0; i<questions.length; i++){
     console.log(questions[i].answers);
 }
 
-for (i=0; i<questions.length; i++){
-     console.log(questions[i].choices);
-     }
+
 
 
