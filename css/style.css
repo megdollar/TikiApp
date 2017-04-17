@@ -13,9 +13,10 @@ hr {
 }
 
 #quizContainer {
-	max-width: 50%;
+	max-width: 60%;
 	max-height: 50%;
 	margin: 0 auto;
+    margin-top: 15px;
 	padding: 10px 50px 10px 50px;
 	border-radius: 50px;
 	border: 2px solid #a0cfd6;
@@ -24,7 +25,7 @@ hr {
 
 h1 {
 	text-align: center;
-	line-height: 1.75em;
+	line-height: 1.5em;
 	padding: 2px 0px;
 	background-color: #d5eaed;
 	border-radius: 50px;
@@ -75,4 +76,24 @@ h1 {
 
 	}
 
+}
+
+@media screen and (max-width: 730px){
+    #quizContainer {
+	max-width: 90%;
+	max-height: 50%;
+	margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+	padding: 10px;
+	border-radius: 50px;
+	border: 1px solid #a0cfd6;
+	box-shadow: 10px 15px 5px #a0cfd6;
+}
+    h1 {
+        font-size: 22px;
+    }
+    h2, h3, h4 {
+        font-size: 18px;
+    }
 }
