@@ -108,9 +108,10 @@ li {
 
 }
 
-@media screen and (max-width: 730px){
+@media screen and (max-width: 650px){
     #quizContainer {
     padding: 10px 0px 0px 0px;
+    height: 100%;
 
 	}
     h1 {
@@ -125,7 +126,8 @@ li {
     h3 {
     	margin-top: 0px;
     }
-    #about{
-    	margin-top: 10px;
+    html, body, #quiz {
+    	overflow-y: auto;
+    	height: 100%;
     }
 }
