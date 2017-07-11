@@ -16,7 +16,7 @@
 
 </head>
 <body>
-<div id="quizContainer" class="container">
+
 <div id="quizContainer" class="container">
 <nav>
 	<ul>
@@ -27,19 +27,19 @@
 	</ul>
 </nav>
 <div id="quiz">
-	<div id="title">
-		<h1>Tiki Bar Guest Test</h1>
+	<div id="quizPopulator">
+		<div>
+			<p id="question"></p>
+		</div>
+		<div id="buttons">
+			<button id="btn0"><span id="choice0"></span></button>
+			<button id="btn1"><span id="choice1"></span></button>
+			<button id="btn2"><span id="choice2"></span></button>
+		</div>
+		<div id="progress">
+			<p class="progress">Question x of y.</p>
+		</div>
 	</div>
-	<div id="about">
-		<h3>Mahalo and Welcome to the Tiki Bar Guest Test.</h3>
-		<br>
-		<p>Ever since Jimmy Buffet and his roving heard of calypso clowns burst onto the carefree lifestyle scene, knowing if you are truly in a Tiki Bar has become much more of a buzzkill than ever before. We here at the Flamingo Brothers Research Laboratory and Luau have come up with an easy to use test to help you assess your surroundings with minimal negative impact on your intoxication.</p>
-		<p>Simply answer the questions to the best of your ability, and we will do all the heavy lifting.</p>
-		<button id="btn0"><span><a href="quiz.html">Start Quiz</a></span></button>
-
-	</div>
-
-
 
 </div>
 
@@ -47,8 +47,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 
-
-
+<script type="text/javascript" src="js/model.js"></script>
+ 
 
 </body>
 </html>
