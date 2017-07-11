@@ -95,7 +95,7 @@ function showScores() {
 	var gameOverHtml = "<h1>Result</h1>";
 	gameOverHtml += "<h2 id='score'> Your Score: " + totalPercent + " % </h2><hr>";
     gameOverHtml += "<h3 id='tiki'> Tiki status: </h3>" + "<p>" + tikiLog + "</p>";
-    gameOverHtml +=  "<img class='img-thumbnail rounded-float-left' src=\" " + tikiImg + "\">";
+    gameOverHtml +=  "<img id='resultImg' class='img-thumbnail' src=\" " + tikiImg + "\">";
 	var element = document.getElementById("quiz");
 	element.innerHTML = gameOverHtml;
     
