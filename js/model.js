@@ -1,5 +1,3 @@
-var answerScore;
-//This will contain scores, num of questions
 
 //Quiz constructor function initialize score at 0, questions, question index (currently on) 0
 function Quiz(questions) {
@@ -21,20 +19,13 @@ Quiz.prototype.isEnded = function() {
 //check if answer is correct (maybe change)
 Quiz.prototype.guesses = function (answers) {
 	//increment the question index regardless of if it is correct or not
-
+    
 	//checks the correct answer from the model.js
 	if(this.getQuestionIndex().correctAnswer(answers)){
         //for (i=0; i<Question.length; i++){
-            
-        
-		  
-        console.log(this.score + answers);
-
-       
-       // }
+        this.score++;  
 	}
     
-
 	//increment the question index regardless of if it is correct or not
 	this.questionIndex++;
 };
@@ -50,18 +41,8 @@ function Question(text, choices, answers){
 //Detect answer for each choice selected in question. return true if choice = answer
 //maybe need to change this to map each answer to each choice 
 Question.prototype.correctAnswer = function(choice) {
-	//return choice === this.answers;
-    for (i=0; i<Question.length; i++){
-        //for (answers in questions){
-                //console.log(this.answers[i]);
-                console.log(this.choices[i] = this.answers[i]);
-            
+	return choice === this.answers;
 
-        
-        
-        //}
-        
-    }
 };
 
 //function for each question loop through answer and map the value to choice 
@@ -89,13 +70,37 @@ function populate() {
 	}
 }
 
+
 function showScores() {
 	//if quiz is ended show the scores in this html
+    
+    var totalPercent = Math.floor((quiz.score / questions.length) * 100) ;
+    var tikiLog = "";
+    var tikiImage;
+    if (totalPercent <= 40){
+        tikiLog ="Tommy Bahama with wafts of Panda Express from the nearby food court.";
+        tikiImg = "img/tommybahama.jpeg";
+    } else if (totalPercent >= 41 && totalPercent <= 70){
+        tikiLog ="Cheeseburger in Paradise/ Margaritaville";
+        tikiImg = "img/margaritaville.jpg";
+    } else if (totalPercent >= 71 && totalPercent <= 89){
+        tikiLog ="Bennihana's - Close but no cigar";
+        tikiImg = "img/benihana.jpg";
+    } else {
+        tikiLog ="Slap my ass and call me Victor, you're in a genuine tiki bar.";
+        tikiImg = "img/tiki.jpg";
+    }
+        
+    
 	var gameOverHtml = "<h1>Result</h1>";
-	gameOverHtml += "<h2 id='score'> Your Score: " + quiz.score + "</h2>";
-	var element = document.getElementById("quizContainer");
+	gameOverHtml += "<h2 id='score'> Your Score: " + totalPercent + " % </h2><hr>";
+    gameOverHtml += "<h3 id='tiki'> Tiki status: </h3>" + "<p>" + tikiLog + "</p>";
+    gameOverHtml +=  "<img id='resultImg' class='img-thumbnail' src=\" " + tikiImg + "\">";
+	var element = document.getElementById("quiz");
 	element.innerHTML = gameOverHtml;
+    
 }
+
 
 function guesses(id, guess){
 	var button = document.getElementById(id);
@@ -116,24 +121,24 @@ function showProgress(){
 
 //question, array of choices, array of answers
 var questions = [
-	new Question("Best Van Halen lead singer?", ["Diamond David Lee Roth","Sammy Hagar", "I don't know"], [0,10,0]),
-	new Question("Are the bartenders wearing Aloha Shirts?", ["No", "Yes, but they are very touristy", "Yes, and they're pretty sweet"],[0,5,10]),
-	new Question("Can you see any whole limes behind the bar?", ["Yes", "No", "Yes, but they're moldy"], [5,0,1]),
-	new Question("Are there any tiki gods on the wall?",["No", "Yes, and they are hand carved", "Yes, generic store-bought"], [0,15,5]),
-	new Question("How many drinks have you seen lit on fire go by?", ["0 safety hazard!", "0 but I've seen them on #Instagram","1 or more"], [0,5,15]),
-	new Question("Is there a rum section on the menu?", ["No", "Yes, but nothing special", "Yes and they're divided by country"],[0,1,15]),
-	new Question("Are any surfaces around you covered in Bamboo?", ["No", "A few", "All of them"],[0,1,15]),
-	new Question("From where you sit, how many bottles of flavored rum can you count? ", ["0", "1-3", "NOT ENOUGH!!"],[10,1,0]),
-	new Question("How many different types of Tiki Mugs are behind the bar?", ["1 Generic mug reserved for Tiki Tuesday", "1-3 One of those mugs costs $20+ to buy, but its cool ", "10+ but you cant drink out of them, they're the owner's personal collection"],[0,1,15]),
-	new Question("Are you in the basement of a hotel or somehow attached to a hotel?", ["No", "How is this relevant?", "Yes"],[0,1,15]),
-	new Question("Does the bar ever host guest DJ's?", ["No, cause I'm in a tiki bar!!", "Yes, for retro dance party on an off night", "Yes, for Friday night Dance Parties"],[15,1,0]),
-	new Question("Does the bar have signature swizzle sticks? ", ["No", "Yes", "I don't now"],[0,15,0]),
-	new Question("Are any of the patrons wearing swim trunks or flip-flops?", ["No", "Yes, but I doubt they know how to swim", "Yes, they just got off the water"],[15,0,0]),
-	new Question("Do they offer Scorpion Bowls / Communal Drinks?", ["No, they are time consuming", "Of course, B-52s met over a Scorpion Bowl", "The have pitches of daquiris"],[0,15,1]),
-	new Question("Are there fresh flowers in any of the drinks?", ["Yes, and I love it!", "Yes, and I'm insecure about it.", "No. But that reminds me to call my mom for mothers day."],[10,5,0]),
-	new Question("Can you see the words 'Cabo Wabo' from where you sit?", ["No, Im in a tiki bar. ", "Yes, that’s why I came to this bar.", "Its tattood on my neck, but I can't see it"],[15,0,0]),
-	new Question("Can the Bartender talk to a patron for more than 3 minutes without saying 'Orgeat'", ["No", "Yes", "Is that a word?"],[5,0,0]),
-	new Question("Yell 'Is it just me or is Jimmy Buffet a big ole Burger Breathed Bozo?'", ["Getting thrown out?", "Getting a free shot?", "Getting thrown out but its worth it!"],[0,5,10])
+	new Question("Best Van Halen lead singer?", ["Diamond David Lee Roth","Sammy Hagar", "Dee Snider"], "Sammy Hagar"),
+	new Question("Are the bartenders wearing Aloha Shirts?", ["No", "Yes, but they are very touristy", "Yes, and they're pretty sweet"],"Yes, and they're pretty sweet"),
+	new Question("Can you see any whole limes behind the bar?", ["Yes", "No", "Yes, but they're moldy"], "Yes"),
+	new Question("Are there any tiki gods on the wall?",["No", "Yes, and they are hand carved", "Yes, generic store-bought"], "Yes, and they are hand carved"),
+	new Question("How many drinks have you seen lit on fire go by?", ["0 safety hazard!", "0 but I've seen them on #Instagram","1 or more"], "1 or more"),
+	new Question("Is there a rum section on the menu?", ["No", "Yes, but nothing special", "Yes and they're divided by country"],"Yes and they're divided by country"),
+	new Question("Are any surfaces around you covered in Bamboo?", ["No", "A few", "All of them"],"All of them"),
+	new Question("From where you sit, how many bottles of flavored rum can you count? ", ["0", "1-3", "NOT ENOUGH!!"],"0"),
+	new Question("How many different types of Tiki Mugs are behind the bar?", ["1 Generic mug reserved for Tiki Tuesday", "1-3 One of those mugs costs $20+ to buy, but its cool ", "10+ but you cant drink out of them, they're the owner's personal collection"],"10+ but you cant drink out of them, they're the owner's personal collection"),
+	new Question("Are you in the basement of a hotel or somehow attached to a hotel?", ["No", "How is this relevant?", "Yes"],"Yes"),
+	new Question("Does the bar ever host guest DJ's?", ["No, cause I'm in a tiki bar!!", "Yes, for retro dance party on an off night", "Yes, for Friday night Dance Parties"],"No, cause I'm in a tiki bar!!"),
+	new Question("Does the bar have signature swizzle sticks? ", ["No", "Yes", "No generic swizzle sticks either!!"],"Yes"),
+	new Question("Are any of the patrons wearing swim trunks or flip-flops?", ["No", "Yes, but I doubt they know how to swim", "Yes, they just got off the water"],"No"),
+	new Question("Do they offer Scorpion Bowls / Communal Drinks?", ["No, they are time consuming", "Of course, B-52s met over a Scorpion Bowl", "Pitchers of Margarita count?"],"Of course, B-52s met over a Scorpion Bowl"),
+	new Question("Are there fresh flowers in any of the drinks?", ["Yes, and I love it!", "Yes, and I'm insecure about it.", "No. But that reminds me to call my mom for mothers day."],"Yes, and I love it!"),
+	new Question("Can you see the words 'Cabo Wabo' from where you sit?", ["No, Im in a tiki bar.", "Yes, that’s why I came to this bar.", "Its tattood on my neck, but I can't see it"],"No, Im in a tiki bar."),
+	new Question("Can the Bartender talk to a patron for more than 3 minutes without saying 'Orgeat'", ["No", "Yes", "Can't hear the bartender over the blenders"],"No"),
+	new Question("Yell 'Is it just me or is Jimmy Buffet a big ole Burger Breathed Bozo?'", ["Getting thrown out?", "Getting a free shot?", "Getting thrown out but its worth it!"],"Getting thrown out but its worth it!")
 	];
 
 var quiz = new Quiz(questions);
@@ -142,9 +147,6 @@ var quiz = new Quiz(questions);
 populate();
 
 
-for (i=0; i<questions.length; i++){
-    console.log(questions[i].answers);
-}
 
 
 
